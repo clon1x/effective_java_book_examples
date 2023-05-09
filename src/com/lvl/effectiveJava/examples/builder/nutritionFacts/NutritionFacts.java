@@ -2,38 +2,46 @@ package com.lvl.effectiveJava.examples.builder.nutritionFacts;
 
 public class NutritionFacts {
 	
-	private final int servingSize; 	// (mL)					required
-	private final int servings;		// (per container) 		required
-	private final int calories;		// (per serving)		optional
-	private final int fat;			// (g/serving)			optional
-	private final int sodium;		// (mg/serving)			optional
-	private final int carbohydrate;	// (g/serving)			optional
+	private int servingSize; 	// (mL)					required
+	private int servings;		// (per container) 		required
+	private int calories;		// (per serving)		optional
+	private int fat;			// (g/serving)			optional
+	private int sodium;		// (mg/serving)			optional
+	private int carbohydrate;	// (g/serving)			optional
 	
-	public NutritionFacts(int servingSize, int servings) {
-		this(servingSize, servings, 0);
-	}
-	
-	public NutritionFacts(int servingSize, int servings, int calories) {
-		this(servingSize, servings, calories, 0);
-	}
-		
-	public NutritionFacts(int servingSize, int servings, int calories, int fat) {
-		this(servingSize, servings, calories, fat, 0);
-	}
-	
-	public NutritionFacts(int servingSize, int servings, int calories, int fat, int sodium) {
-		this(servingSize, servings, calories, fat, sodium, 0);
-	}
-	
-	public NutritionFacts(int servingSize, int servings, int calories, int fat, int sodium, int carbohydrate) {
-		super();
+
+	public NutritionFacts() {}
+
+
+	public void setServingSize(int servingSize) {
 		this.servingSize = servingSize;
+	}
+
+
+	public void setServings(int servings) {
 		this.servings = servings;
+	}
+
+
+	public void setCalories(int calories) {
 		this.calories = calories;
+	}
+
+
+	public void setFat(int fat) {
 		this.fat = fat;
+	}
+
+
+	public void setSodium(int sodium) {
 		this.sodium = sodium;
+	}
+
+
+	public void setCarbohydrate(int carbohydrate) {
 		this.carbohydrate = carbohydrate;
 	}
+
 
 	@Override
 	public String toString() {
