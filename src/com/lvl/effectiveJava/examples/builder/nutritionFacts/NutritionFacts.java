@@ -1,47 +1,77 @@
 package com.lvl.effectiveJava.examples.builder.nutritionFacts;
 
 public class NutritionFacts {
-	
-	private int servingSize; 	// (mL)					required
-	private int servings;		// (per container) 		required
-	private int calories;		// (per serving)		optional
-	private int fat;			// (g/serving)			optional
-	private int sodium;		// (mg/serving)			optional
-	private int carbohydrate;	// (g/serving)			optional
-	
 
-	public NutritionFacts() {}
+	public static final class NutritionFactsBuilder {
 
+		private NutritionFacts instance = new NutritionFacts();
 
-	public void setServingSize(int servingSize) {
-		this.servingSize = servingSize;
+		public NutritionFactsBuilder(int servingSize, int servings) {
+			instance.servingSize = servingSize;
+			instance.servings = servings;
+		}
+
+		public NutritionFacts build() {
+			return instance;
+		}
+
+		public NutritionFactsBuilder withCalories(int calories) {
+			instance.calories = calories;
+			return this;
+		}
+
+		public NutritionFactsBuilder withCarbohydrate(int carbohydrate) {
+			instance.carbohydrate = carbohydrate;
+			return this;
+		}
+
+		public NutritionFactsBuilder withFat(int fat) {
+			instance.fat = fat;
+			return this;
+		}
+
+		public NutritionFactsBuilder withSodium(int sodium) {
+			instance.sodium = sodium;
+			return this;
+		}
+
 	}
 
+	private int servingSize; // (mL) required
+	private int servings; // (per container) required
+	private int calories; // (per serving) optional
+	private int fat; // (g/serving) optional
 
-	public void setServings(int servings) {
-		this.servings = servings;
+	private int sodium; // (mg/serving) optional
+
+	private int carbohydrate; // (g/serving) optional
+
+	private NutritionFacts() {
 	}
 
-
-	public void setCalories(int calories) {
-		this.calories = calories;
+	public int getCalories() {
+		return calories;
 	}
 
-
-	public void setFat(int fat) {
-		this.fat = fat;
+	public int getCarbohydrate() {
+		return carbohydrate;
 	}
 
-
-	public void setSodium(int sodium) {
-		this.sodium = sodium;
+	public int getFat() {
+		return fat;
 	}
 
-
-	public void setCarbohydrate(int carbohydrate) {
-		this.carbohydrate = carbohydrate;
+	public int getServings() {
+		return servings;
 	}
 
+	public int getServingSize() {
+		return servingSize;
+	}
+
+	public int getSodium() {
+		return sodium;
+	}
 
 	@Override
 	public String toString() {
