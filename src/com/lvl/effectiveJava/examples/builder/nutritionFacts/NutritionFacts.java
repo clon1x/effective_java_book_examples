@@ -12,6 +12,7 @@ public class NutritionFacts {
 		}
 
 		public NutritionFacts build() {
+			// check here for fields consistency
 			return instance;
 		}
 
@@ -39,12 +40,12 @@ public class NutritionFacts {
 
 	private int servingSize; // (mL) required
 	private int servings; // (per container) required
-	private int calories; // (per serving) optional
-	private int fat; // (g/serving) optional
+	private int calories = 0; // (per serving) optional
+	private int fat = 0; // (g/serving) optional
 
-	private int sodium; // (mg/serving) optional
+	private int sodium = 0; // (mg/serving) optional
 
-	private int carbohydrate; // (g/serving) optional
+	private int carbohydrate = 0; // (g/serving) optional
 
 	private NutritionFacts() {
 	}
