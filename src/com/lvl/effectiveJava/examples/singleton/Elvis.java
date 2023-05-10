@@ -1,40 +1,22 @@
 package com.lvl.effectiveJava.examples.singleton;
 
-import java.io.Serializable;
-
 /**
- * Singleton with public final field
+ * Singleton with ENUM (preferred way)
+ * Simpler than the public field approach and ironclad
+ * guarantee of the singleton property.
+ * 
+ * Can't use it if the Singleton must extend a class other than Enum.
+ * Interface implementation is possible, though.
  * 
  * @author LVL
  *
  */
-public class Elvis implements Serializable {
+public enum Elvis {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1300973988232000629L;
-	private static final Elvis INSTANCE = new Elvis();
-	
-	private Elvis() {}
-	
-	public static Elvis getInstance() {
-		return Elvis.INSTANCE;
-	}
+	INSTANCE;
 
 	public void sing() {
 		System.out.println("Elvis sings a beautiful song");
-	}
-	
-	/**
-	 * Implement readResolve to preserve Singleton property on deserialization.
-	 * Return the true and only instance and let the garbage collector take 
-	 * care of this object.
-	 * 
-	 * @return The singleton Instance.
-	 */
-	private Object readResolve() {
-		return INSTANCE;
 	}
 
 }
